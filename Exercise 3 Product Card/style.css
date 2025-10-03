@@ -1,0 +1,47 @@
+*{
+    background-color: #f4f4f4;
+    font-family:Noto sans thai;
+    font-size: 16px;
+}
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin: 250px;
+}
+.firstCard{
+    border: 1px solid black;
+    border-radius: 10px;
+    align-items: baseline;
+    align-content: center;
+    margin: 10px;
+    width: 300px;
+    background-color: white;
+}
+img{
+    width: 300px;
+    height: 300px;
+    border-radius: 20px 20px 0 0;
+}
+.caption{
+    justify-content: center;
+    background-color: white;
+    padding: 0px 10px;
+    
+    
+}
+ .linethroughPrice{
+    background-color: white;
+    padding: 0px 10px;
+    text-decoration: line-through;
+    color: black;
+    font-weight: 450;
+    font-size: 20px;
+ }
+ .price{
+    background-color: white;
+    font-weight: bold;
+    padding: 0px 10px;
+    color: red;
+    font-size: 20px;
+ }
