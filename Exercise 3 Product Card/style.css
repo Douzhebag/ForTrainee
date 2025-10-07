@@ -1,14 +1,13 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Noto sans thai;
-    
+    font-family: Noto sans thai;
 }
-ิbody{
+ิbody {
     background-color: #f4f4f4;
 }
-main{
+main {
     margin: auto;
 }
 .cardContainer {
@@ -17,7 +16,7 @@ main{
     align-items: center;
     height: 100svh;
 }
-.firstCard{
+.firstCard {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -29,24 +28,48 @@ main{
     width: 300px;
     background-color: white;
 }
-img{
+img {
     width: auto;
     height: auto;
     border-radius: 20px 20px 0 0;
 }
- .linethroughPrice{
-    padding: 0px 10px;
+.linethroughPrice {
+    padding-right:10px;
     text-decoration: line-through;
     color: black;
     font-weight: 450;
     font-size: 20px;
- }
- .price{
+}
+.price {
     font-weight: bold;
     color: red;
     font-size: 20px;
- }
- .firstCard div p{
+}
+.firstCard div p {
     display: flex;
     gap: 4px;
- }
+}
+/* @media screen and (min-width: 768px) and (max-width: 1068px) {
+    .cardContainer {
+        margin: auto;
+        height: auto;
+    }
+    .firstCard {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+} */
+@media screen and (max-width: 767px) {
+    .cardContainer {
+        flex-direction: column;
+        height: 80%;
+        margin: auto;
+        width: 80%;
+    }
+    .firstCard {
+        display: flex;
+        flex-direction: column;
+        
+    }
+}

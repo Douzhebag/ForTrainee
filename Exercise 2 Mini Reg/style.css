@@ -1,71 +1,76 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: "Noto Sans Thai", sans-serif;
+    font-family: 'Noto Sans Thai', sans-serif;
 }
-
-
-main{
-    margin: auto;
+body{
+    overflow-x: hidden;
+}
+main {
+    margin: 20px auto;
     width: 80%;
 }
-.menu-bar{
+.menu-bar {
     background-color: white;
-    box-shadow:rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     padding: 8px;
 }
-h1{
+.headerone {
     display: inline-block;
     margin: 20px;
 }
-.navbar{
+.navbar {
     display: inline-block;
     padding: 20px;
 }
-.navbar a{
+.navbar a {
     padding: 0px 16px;
     color: black;
     text-decoration: none;
 }
 
-.caption{
+.caption {
     font-size: 16px;
-    border: 4px  rgba(0, 0, 0, 0.575);
+    border: 4px rgba(0, 0, 0, 0.575);
     border-radius: 4px;
     padding: 16px;
-    margin-top: 20px;
     background-color: rgb(0, 0, 0);
     color: white;
 }
-.section-courses{
+.section-courses {
     border: 0.5px solid rgb(203, 203, 203);
     background-color: rgba(236, 236, 236, 0.897);
     border-radius: 8px;
     padding: 16px;
     margin-top: 20px;
 }
-.section-courses ul li{
+.section-courses ul li {
     list-style-type: square;
     margin-left: 20px;
     font-size: 18px;
 }
-.title-courses{
+.title-courses {
     margin-top: 20px;
     font-size: 28px;
     font-weight: bold;
 }
-.course-name{
+.course-name {
     padding-bottom: 8px;
 }
-.footer{
+.footer {
     display: flex;
     border: 2px solid black;
     padding: 20px;
-    margin-top: 20px;
     background-color: rgb(0, 0, 0);
     color: white;
 }
-.footer p{
+.footer p {
     margin: auto;
+}
+@media screen and (max-width: 767px) {
+    .navbar {
+        font-size: 12px;
+    }
+    
 }
