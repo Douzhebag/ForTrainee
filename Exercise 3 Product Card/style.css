@@ -34,7 +34,7 @@ img {
     border-radius: 20px 20px 0 0;
 }
 .linethroughPrice {
-    padding-right:10px;
+    padding-right: 10px;
     text-decoration: line-through;
     color: black;
     font-weight: 450;
@@ -44,6 +44,9 @@ img {
     font-weight: bold;
     color: red;
     font-size: 20px;
+}
+.price figcaption span {
+    font-size: 16px;
 }
 .firstCard div p {
     display: flex;
@@ -70,6 +73,5 @@ img {
     .firstCard {
         display: flex;
         flex-direction: column;
-        
     }
 }
