@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: Noto sans thai;
 }
-ิbody {
+body {
     background-color: #f4f4f4;
 }
 main {
@@ -14,24 +14,30 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     height: 100svh;
 }
 .firstCard {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    border-radius: 10px;
     align-content: center;
-    margin: 10px;
+    align-items: center;
     gap: 8px;
     padding: 12px;
-    width: 300px;
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 10px;
     background-color: white;
+    height: 400px;
+    width: 300px;
 }
 img {
-    width: auto;
+    width: 260px;
     height: auto;
+    object-fit: cover;
     border-radius: 20px 20px 0 0;
+}
+.caption {
+    width: 100%;
 }
 .linethroughPrice {
     padding-right: 10px;
@@ -44,6 +50,7 @@ img {
     font-weight: bold;
     color: red;
     font-size: 20px;
+    width: 100%;
 }
 .price figcaption span {
     font-size: 16px;
@@ -52,26 +59,13 @@ img {
     display: flex;
     gap: 4px;
 }
-/* @media screen and (min-width: 768px) and (max-width: 1068px) {
+@media screen and (max-width: 956px) {
     .cardContainer {
-        margin: auto;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .firstCard {
         height: auto;
-    }
-    .firstCard {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-    }
-} */
-@media screen and (max-width: 767px) {
-    .cardContainer {
-        flex-direction: column;
-        height: 80%;
-        margin: auto;
-        width: 80%;
-    }
-    .firstCard {
-        display: flex;
-        flex-direction: column;
+        width: 100%;
     }
 }
