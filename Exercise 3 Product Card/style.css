@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family:Noto sans thai;
-    
 }
 ิbody{
     background-color: #f4f4f4;
@@ -11,11 +10,19 @@
 main{
     margin: auto;
 }
+.container{
+    min-height: 100dvh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
 .cardContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100svh;
+    height: 100%;
+    width: auto;
 }
 .firstCard{
     display: flex;
@@ -27,18 +34,17 @@ main{
     gap: 8px;
     padding: 12px;
     width: 300px;
-    background-color: white;
+}
+.caption{
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
 }
 img{
     width: auto;
     height: auto;
-    border-radius: 20px 20px 0 0;
-}
-.caption{
-    
 }
  .linethroughPrice{
-    padding: 0px 10px;
     text-decoration: line-through;
     color: black;
     font-weight: 450;
@@ -49,7 +55,26 @@ img{
     color: red;
     font-size: 20px;
  }
+ .price figcaption span{
+    font-size: 16px;
+ }
  .firstCard div p{
     display: flex;
     gap: 4px;
  }
+.card-button{
+    all: unset;
+    padding: 8px;
+    background-color: #2e6cfe;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+.card-button:hover{
+    background-color: #0040d6;
+}
+.card-button:focus{
+    border: 1px solid #000c29;
+}
