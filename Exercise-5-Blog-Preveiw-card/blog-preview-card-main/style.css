@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Figtree', sans-serif;
+}
+:root {
+    --Yellow: hsl(47, 88%, 63%);
+    --White: hsl(0, 0%, 100%);
+    --Gray500: hsl(0, 0%, 42%);
+    --Gray950: hsl(0, 0%, 7%);
+}
+body {
+    font-size: 16px;
+    background-color: var(--Yellow);
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    border-radius: 20px;
+    background-color: var(--White);
+    padding: 24px;
+    width: 384px;
+    height: auto;
+    border: 2px solid var(--Gray950);
+    box-shadow: 10px 10px;
+}
+.image-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.logo {
+    border-radius: 10px;
+    width: 336px;
+    height: 200px;
+}
+.text-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+}
+.Category {
+    background-color: var(--Yellow);
+    width: 30%;
+    gap: 8px;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+.body-text {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--Gray950);
+}
+.Normal-text {
+    font-size: 14px;
+    color: var(--Gray950);
+    text-align: left;
+}
+.Title {
+    text-align: left;
+    font-size: 24px;
+}
+.Description {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    color: var(--Gray500);
+}
+.author {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    gap: 0.75rem;
+}
+.user-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+.author-caption {
+    font-size: 14px;
+    color: var(--Gray950);
+    font-weight: 800;
+}
+.container:hover {
+    color: var(--Yellow);
+    cursor: pointer;
+    box-shadow: 18px 18px 0px 0px var(--Gray950);
+    transition: all 0.8s ease-in-out;
+}
+@media screen and (max-width: 376px) {
+    .container {
+        width: 90%;
+    }
+    .logo {
+        width: 100%;
+        height: auto;
+    }
+}
