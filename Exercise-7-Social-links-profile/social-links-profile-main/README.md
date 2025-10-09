@@ -25,7 +25,7 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 ### Links
 
 -   Solution URL: [Add solution URL here](https://github.com/Douzhebag/ForTrainee.git)
--   Live Site URL: [Add live site URL here](https://douzhebag.github.io/ForTrainee/Exercise-7-Social-links-profile-main/)
+-   Live Site URL: [Add live site URL here](https://douzhebag.github.io/ForTrainee/Exercise-7-Social-links-profile/social-links-profile-main/)
 
 ## My process
 
