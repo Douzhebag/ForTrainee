@@ -78,12 +78,20 @@ main {
     font-weight: 600;
     box-shadow: 0px 4px 0px 0px var(--Grey900);
 }
-.Link-button:hover {
+.Link-button:hover,
+.Link-button:focus  {
     cursor: pointer;
     background-color: var(--Green);
     box-shadow: 0px 4px 0px 0px var(--Green);
     transition: all 0.3s ease-in-out;
     color: var(--Grey900);
+    box-shadow: 12px 12px 12px 12px var(--Grey900);
+}
+.Link-button:active{
+    cursor: pointer;
+    background-color: var(--Grey900);
+    box-shadow: 0px 4px 0px 0px var(--Green);
+    color: var(--white);
     box-shadow: 12px 12px 12px 12px var(--Grey900);
 }
 @media screen and (max-width: 375px) {
