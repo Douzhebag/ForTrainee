@@ -1,0 +1,171 @@
+:root {
+    --white: hsl(0, 0%, 100%);
+    --Stone100: hsl(30, 54%, 90%);
+    --Stone150: hsl(30, 18%, 87%);
+    --Stone600: hsl(30, 10%, 34%);
+    --Stone900: hsl(24, 5%, 18%);
+
+    --Brown800: hsl(14, 45%, 36%);
+
+    --Rose800: hsl(332, 51%, 32%);
+    --Rose50: hsl(330, 100%, 98%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+body {
+    font-size: 16px;
+    background-color: var(--Stone100);
+    color: var(--Stone900);
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    width: 100%;
+}
+.container {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 36px;
+    gap: 24px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.Picture {
+    width: 100%;
+    display: block;
+}
+.Picture img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 32px;
+}
+.Menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--Stone900);
+}
+.Menu h1 {
+    font-size: 40px;
+    line-height: 1.05;
+    color: var(--Stone900);
+    letter-spacing: -0.5px;
+}
+.Menu p {
+    color: var(--Stone600);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+.Time {
+    padding: 18px 22px;
+    margin: 0 32px;
+    background: var(--Rose50);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(180, 120, 140, 0.06);
+}
+.Time h3 {
+    color: var(--Rose800);
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+.Time ul {
+    padding-left: 0;
+    color: var(--Stone600);
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.Time li b {
+    color: var(--Stone900);
+}
+.Ingredients h2,
+.Instructions h2,
+.Nutrition h2 {
+    color: var(--Brown800);
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+.Ingredients ul {
+    color: var(--Stone600);
+    font-weight: 400;
+    margin-left: 18px;
+}
+.Instructions ol {
+    margin-left: 18px;
+    font-weight: 700;
+    color: var(--Brown800);
+}
+.Instructions p {
+    display: inline;
+    font-weight: 400;
+    color: var(--Stone600);
+}
+.Ingredients li {
+    margin-bottom: 8px;
+}
+.Instructions ol {
+    padding-right: 18px;
+}
+.Instructions li {
+    margin-bottom: 14px;
+    padding-left: 12px;
+}
+.Nutrition-table {
+    width: 100%;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.Calories {
+    display: flex;
+    justify-content: space-between;
+    width: 80%  ;
+}
+.Nutrition p {
+    color: var(--Stone600);
+    font-size: 14px;
+    margin: 8px 0;
+}
+.Nutrition-table b {
+    color: var(--Brown800);
+}
+@media (max-width: 700px) {
+    .container {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+    .Picture img {
+        height: 240px;
+    }
+    .Menu {
+        padding: 20px;
+    }
+    .Time {
+        margin: 0 20px;
+    }
+    .Menu h1 {
+        font-size: 24px;
+    }
+    body {
+        font-size: 15px;
+    }
+}

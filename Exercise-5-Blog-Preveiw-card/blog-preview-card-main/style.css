@@ -41,7 +41,7 @@ main {
 }
 .logo {
     border-radius: 10px;
-    width: 336px;
+    width: auto;
     height: 200px;
 }
 .text-container {

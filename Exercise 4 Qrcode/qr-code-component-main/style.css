@@ -54,7 +54,7 @@ body {
     font-weight: 400;
     color: var(--Slate-500);
 }
-@media screen and (max-width: 375px) {
+@media only screen and (max-width: 768px) {
     .container {
         display: flex;
         justify-content: center;
