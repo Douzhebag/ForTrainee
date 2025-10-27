@@ -102,7 +102,7 @@ main {
     border-radius: 6px;
     padding: 36px 28px;
     display: flex;
-    flex-direction: column;
+        
     justify-content: space-between;
 }
 .box-4 {
