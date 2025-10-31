@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NVIDIA</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <header>
+            <div class="nav-container">
+                <div class="nav-bars">
+                    <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fas"
+                        data-icon="bars"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+                        ></path>
+                    </svg>
+                </div>
+                <div class="nav-box">
+                    <div class="nav-header">
+                        <div class="image-box">
+                            <a href="https://www.nvidia.com/en-us/"
+                                ><div class="image">
+                                    <!-- <img
+                                        src="data:image/png;base64,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"
+                                        alt="logo"
+                                    /> -->
+                                    <svg viewBox="0 0 164 30"><defs><path id="a" d="M157.725 29.99H.01V.048h157.715z"></path></defs><g fill="none" fill-rule="evenodd"><path d="M160.352 24.069v-.449h.288c.157 0 .371.012.371.204 0 .208-.11.245-.296.245h-.363m0 .315h.192l.447.784h.49l-.494-.816c.255-.019.465-.14.465-.484 0-.427-.295-.565-.793-.565h-.721v1.865h.414v-.784m2.098-.146c0-1.095-.851-1.73-1.8-1.73-.955 0-1.805.635-1.805 1.73s.85 1.733 1.805 1.733c.948 0 1.8-.638 1.8-1.733m-.52 0c0 .798-.587 1.334-1.28 1.334v-.006c-.713.006-1.289-.53-1.289-1.328 0-.797.577-1.331 1.289-1.331.694 0 1.28.534 1.28 1.331" fill="#1A1919"></path><mask id="b" fill="#fff"><use href="#a"></use></mask><path d="m96.374 5.707.002 19.66h5.552V5.707h-5.554zm-43.677-.026v19.686H58.3V10.086l4.37.014c1.437 0 2.43.345 3.123 1.084.879.936 1.237 2.444 1.237 5.205v8.978h5.427V14.49c0-7.763-4.948-8.81-9.789-8.81h-9.97zm52.617.027v19.659h9.006c4.798 0 6.364-.798 8.057-2.587 1.198-1.256 1.971-4.014 1.971-7.027 0-2.763-.655-5.228-1.797-6.763-2.057-2.745-5.02-3.282-9.445-3.282h-7.792zm5.508 4.28h2.387c3.463 0 5.703 1.556 5.703 5.591 0 4.037-2.24 5.592-5.703 5.592h-2.387V9.989zm-22.453-4.28-4.634 15.58-4.44-15.579-5.993-.001 6.34 19.659h8.003l6.391-19.659H88.37zm38.563 19.659h5.553V5.709l-5.555-.001.002 19.659zm15.564-19.652-7.753 19.645h5.475l1.227-3.472h9.175l1.161 3.472h5.944l-7.812-19.646-7.417.001zM146.1 9.3l3.364 9.204h-6.833l3.47-9.204z" fill="#000" mask="url(#b)"></path><path d="M16.889 8.985V6.28c.262-.02.528-.033.798-.042 7.4-.232 12.255 6.359 12.255 6.359s-5.244 7.282-10.866 7.282a6.82 6.82 0 0 1-2.187-.35v-8.204c2.88.348 3.46 1.62 5.192 4.508l3.852-3.248s-2.812-3.688-7.552-3.688c-.515 0-1.008.036-1.492.088zm0-8.938V4.09c.265-.021.531-.038.798-.048 10.29-.346 16.995 8.44 16.995 8.44s-7.7 9.364-15.723 9.364c-.735 0-1.424-.068-2.07-.183v2.498c.553.07 1.126.112 1.724.112 7.465 0 12.864-3.812 18.092-8.325.867.694 4.416 2.383 5.145 3.123-4.971 4.16-16.555 7.515-23.123 7.515a18.89 18.89 0 0 1-1.838-.096V30h28.375V.047H16.89zm0 19.482v2.133c-6.905-1.23-8.822-8.408-8.822-8.408s3.316-3.674 8.822-4.269v2.34l-.011-.001c-2.89-.347-5.147 2.353-5.147 2.353s1.265 4.544 5.158 5.852zM4.625 12.943s4.092-6.04 12.264-6.663V4.088C7.838 4.815 0 12.48 0 12.48s4.439 12.833 16.889 14.008V24.16C7.753 23.011 4.625 12.943 4.625 12.943z" fill="#76B900" mask="url(#b)"></path></g></svg>
+                                    </div
+                            ></a>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="list">
+                            <li><a href="#">Products</a></li>
+                            <li><a href="#">Solutions</a></li>
+                            <li><a href="#">Indrustries</a></li>
+                            <li><a href="#">For you</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="nav-container-right">
+                    <div class="nav-container-center">
+                        <ul>
+                            <div class="contact">
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Drivers</a></li>
+                                <li><a href="#">Support</a></li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="location-box">
+                        <div class="location">
+                            <!-- <img
+                                src="data:image/png;base64,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"
+                                alt=""
+                            /> -->
+                            <button class="location-button">
+                            <svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                class="location-image"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M4.65003 10.5C4.55165 10.9847 4.5 11.4863 4.5 12C4.5 12.5137 4.55165 13.0153 4.65003 13.5H7.55935C7.52023 13.0113 7.5 12.51 7.5 12C7.5 11.49 7.52023 10.9887 7.55935 10.5H4.65003ZM5.12407 9H7.74448C7.94369 7.82124 8.25841 6.75177 8.66557 5.85602C8.78395 5.5956 8.9143 5.34175 9.05649 5.09966C7.3001 5.84986 5.88822 7.25105 5.12407 9ZM12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM12 4.5C11.4394 4.5 10.6869 5.03412 10.0311 6.47672C9.7109 7.18121 9.44812 8.03723 9.26799 9H14.732C14.5519 8.03723 14.2891 7.18121 13.9689 6.47672C13.3131 5.03412 12.5606 4.5 12 4.5ZM16.2555 9C16.0563 7.82124 15.7416 6.75177 15.3344 5.85602C15.2161 5.5956 15.0857 5.34175 14.9435 5.09966C16.6999 5.84986 18.1118 7.25105 18.8759 9H16.2555ZM14.9355 10.5H9.06454C9.02232 10.9837 9 11.4851 9 12C9 12.5149 9.02232 13.0163 9.06454 13.5H14.9355C14.9777 13.0163 15 12.5149 15 12C15 11.4851 14.9777 10.9837 14.9355 10.5ZM16.4407 13.5C16.4798 13.0113 16.5 12.51 16.5 12C16.5 11.49 16.4798 10.9887 16.4407 10.5H19.35C19.4484 10.9847 19.5 11.4863 19.5 12C19.5 12.5137 19.4484 13.0153 19.35 13.5H16.4407ZM14.732 15H9.26799C9.44812 15.9628 9.7109 16.8188 10.0311 17.5233C10.6869 18.9659 11.4394 19.5 12 19.5C12.5606 19.5 13.3131 18.9659 13.9689 17.5233C14.2891 16.8188 14.5519 15.9628 14.732 15ZM14.9435 18.9003C15.0857 18.6583 15.2161 18.4044 15.3344 18.144C15.7416 17.2482 16.0563 16.1788 16.2555 15H18.8759C18.1118 16.749 16.6999 18.1501 14.9435 18.9003ZM9.05648 18.9003C8.9143 18.6583 8.78395 18.4044 8.66557 18.144C8.25841 17.2482 7.94369 16.1788 7.74448 15H5.12407C5.88822 16.749 7.3001 18.1501 9.05648 18.9003Z"
+                                    fill="#5E5E5E"
+                                    stroke="white"
+                                    stroke-width="0.2"
+                                ></path>
+                            </svg>
+                            <span class="location-text">US</span>
+                            </button>
+                        </div>
+                        <div class="profile">
+                            <img
+                                src="data:image/svg+xml,%3csvg id='Icon_Account_32px' data-name='Icon Account 32px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'%3e %3cdefs%3e %3cclipPath id='clip-path'%3e %3ccircle id='Circle_Mask' data-name='Circle Mask' cx='10.5' cy='10.5' r='10.5' fill='none' stroke='%23666' stroke-width='1.5'/%3e %3c/clipPath%3e %3c/defs%3e %3cg id='Group_33' data-name='Group 33' transform='translate(1.5 1.5)' clip-path='url(%23clip-path)'%3e %3cg id='Person' transform='translate(3.309 3.75)'%3e %3cg id='Body' transform='translate(-168.412 -102.25)' fill='none' stroke-miterlimit='10'%3e %3cpath d='M180.853%2c112h-10.5l-1.941%2c7.244%2c2.691%2c1.006h9l2.691-1.006Z' stroke='none'/%3e %3cpath d='M 171.5039367675781 113.5 L 170.2134094238281 118.3163299560547 L 171.3740386962891 118.75 L 179.8318634033203 118.75 L 180.9924926757812 118.3163299560547 L 179.7019653320312 113.5 L 171.5039367675781 113.5 M 170.3529510498047 112 L 180.8529510498047 112 L 182.7940979003906 119.2444534301758 L 180.1029510498047 120.25 L 171.1029510498047 120.25 L 168.4118041992188 119.2444534301758 L 170.3529510498047 112 Z' stroke='none' fill='%23666'/%3e %3c/g%3e %3cg id='Head' transform='translate(2.691)' fill='none' stroke='%23666' stroke-miterlimit='10' stroke-width='1.5'%3e %3ccircle cx='4.5' cy='4.5' r='4.5' stroke='none'/%3e %3ccircle cx='4.5' cy='4.5' r='3.75' fill='none'/%3e %3c/g%3e %3c/g%3e %3c/g%3e %3cg id='Circle' transform='translate(1.5 1.5)' fill='none' stroke='%23666' stroke-miterlimit='10' stroke-width='1.5'%3e %3ccircle cx='10.5' cy='10.5' r='10.5' stroke='none'/%3e %3ccircle cx='10.5' cy='10.5' r='9.75' fill='none'/%3e %3c/g%3e %3cg id='Container' fill='none' stroke='%23666' stroke-width='1.5' opacity='0'%3e %3crect width='24' height='24' stroke='none'/%3e %3crect x='0.75' y='0.75' width='22.5' height='22.5' fill='none'/%3e %3c/g%3e%3c/svg%3e"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="name-section">
+                <div class="name-marketplace">
+                    <h1>Marketplace</h1>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="slide-container">
+                <div class="image-product-container">
+                    <img
+                        src="https://marketplace.nvidia.com/geforce/store/assets/images/banner/gpus/rename-bm-s300-d.jpg"
+                        alt="image-nvidia-product"
+                    />
+                </div>
+                <div class="caption-product">
+                    <p>GeFroce RTX 50 Series</p>
+                    <h2>Game Changer</h2>
+                    <a href="#">Shop Now</a>
+                </div>
+            </section>
+            <section class="cardcontainer">
+                <div class="card">
+                    <div class="column">
+                        <div class="headerThree">
+                            <h3>Enterprise</h3>
+                        </div>
+                        <div class="allProduct">
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/Computex_2025_RTX_Pro_Server_Rack.png    "
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                NVIDIA Enterprise AI Factory
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Explore Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/dgx-spark.jpg "
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Personal AI Supercomputers
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Veiw Products
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/ogImages/data-center.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Data Center
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/softwareTablets.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">Software</h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/qualifiedSystems.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Qualified Systems
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/workstation.png"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Workstations
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/embeddedSystems-thor.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Robotics & Edge AI
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/networking.png"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Networking
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/cloudSolutions.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Clound Solutions
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="column">
+                        <div class="headerThree">
+                            <h3>Gaming and Creating</h3>
+                        </div>
+                        <div class="allProduct">
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/geforce-rtx-50-series-ari.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Graphics Cards
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/geforce-rtx-5070ti-nv-sfg-thumbnail-1920x1080.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Gaming Desktops
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/geforce-rtx-50-series-laptop-ari.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Gaming Laptops
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/nvidia-g-sync-gaming-monitors-ari.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Gaming Monitors
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/nvidia-studio-laptop-nv-sfg-thumbnail-1920x1080.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Studio Laptops
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/geforce-now-evens-4c25-P@2x.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                GFN Cloud Gaming
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/nvidia-shield-evens-4c25-P@2x.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                NVIDIA Sheild
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Product-card">
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="grid-product">
+                                            <div class="product-image">
+                                                <img
+                                                    src="https://marketplace.nvidia.com/assets/images/nvidia-nim-ai-ari.jpg"
+                                                    alt=""
+                                                    height="454"
+                                                    width="410"
+                                                />
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="grid-box">
+                                    <div>
+                                        <div>
+                                            <h3 class="card-text">
+                                                Gaming Models
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-box">
+                                        <h4>
+                                            <button class="button">
+                                                Shop Now
+                                            </button>
+                                        </h4>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 640"
+                                            class="pointer"
+                                        >
+                                            <path
+                                                d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="banner-container">
+                <div class="banner"></div>
+                <div class="banner-caption">
+                    <p class="header-banner">NVIDIA Deep Learning Institude</p>
+                    <p>
+                        Educationand Training Solutions To Solve the World's
+                        Most Challenging problems
+                    </p>
+                    <a>Get Online Training</a>
+                </div>
+            </div>
+        </main>
+        <footer class="footer-section">
+            <div class="footer-container">
+                <div class="footer-header">
+                    <div class="footer-caption">
+                        <div class="footer-header-items">
+                            <h4>Enterprise Marketplace</h4>
+                        </div>
+                        <ul>
+                            <li>NVIDIA Enterprise AI Factory</li>
+                            <li>Personal AI Supercomputers</li>
+                            <li>Data Center</li>
+                            <li>Software</li>
+                            <li>Qualified Systems</li>
+                            <li>NVIDIA RTX Workstations</li>
+                            <li>Robotics & Edge AI</li>
+                            <li>Networking</li>
+                            <li>Cloud Solutions</li>
+                            <li>Trainings</li>
+                            <li>Partners</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-header">
+                    <div class="footer-caption">
+                        <div class="footer-header-items">
+                            <h4>Consumer Marketplace</h4>
+                        </div>
+                        <ul>
+                            <li>Graphics Cards</li>
+                            <li>Gaming Desktops</li>
+                            <li>Gaming Laptops</li>
+                            <li>Gaming Monitors</li>
+                            <li>GFN Cloud Gaming</li>
+                            <li>NVIDIA SHIELD</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-header">
+                    <div class="footer-caption">
+                        <div class="footer-header-items">
+                            <h4>Company Info</h4>
+                        </div>
+                        <ul>
+                            <li>About NVIDIA</li>
+                            <li>Company Overview</li>
+                            <li>Careers</li>
+                            <li>NVIDIA Foundation</li>
+                            <li>Investors</li>
+                            <li>NVIDIA Research</li>
+                            <li>Corporate Sustainability</li>
+                            <li>Technologies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-header">
+                    <div class="footer-caption">
+                        <div class="footer-header-items">
+                            <h4>Support</h4>
+                        </div>
+                        <ul>
+                            <li>Customer Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-link">
+                <div class="link-containers">
+                    <div class="envelope-box">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 640"
+                            class="envelope"
+                        >
+                            <path
+                                d="M125.4 128C91.5 128 64 155.5 64 189.4C64 190.3 64 191.1 64.1 192L64 192L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 192L575.9 192C575.9 191.1 576 190.3 576 189.4C576 155.5 548.5 128 514.6 128L125.4 128zM528 256.3L528 448C528 456.8 520.8 464 512 464L128 464C119.2 464 112 456.8 112 448L112 256.3L266.8 373.7C298.2 397.6 341.7 397.6 373.2 373.7L528 256.3zM112 189.4C112 182 118 176 125.4 176L514.6 176C522 176 528 182 528 189.4C528 193.6 526 197.6 522.7 200.1L344.2 335.5C329.9 346.3 310.1 346.3 295.8 335.5L117.3 200.1C114 197.6 112 193.6 112 189.4z"
+                            />
+                        </svg>
+                        <p>Sign Up for NVIDIA News</p>
+                        <a href="">Subscribe</a>
+                    </div>
+                </div>
+                <div class="list-containers">
+                    <p>Follow NVIDIA</p>
+                    <ul class="Dark-social">
+                        <div class="link">
+                            <li>
+                                <a href="#"
+                                    ><svg
+                                        aria-hidden="true"
+                                        focusable="false"
+                                        data-prefix="fab"
+                                        data-icon="facebook-f"
+                                        class="icon"
+                                        role="img"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 320 512"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg
+                                        aria-hidden="true"
+                                        focusable="false"
+                                        data-prefix="fab"
+                                        data-icon="instagram"
+                                        class="icon"
+                                        role="img"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 448 512"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <svg
+                                        aria-hidden="true"
+                                        focusable="false"
+                                        data-prefix="fab"
+                                        data-icon="linkedin"
+                                        class="icon"
+                                        role="img"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 448 512"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <svg
+                                        aria-hidden="true"
+                                        focusable="false"
+                                        data-prefix="fab"
+                                        data-icon="x-twitter"
+                                        class="icon"
+                                        role="img"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <svg
+                                        aria-hidden="true"
+                                        focusable="false"
+                                        data-prefix="fab"
+                                        data-icon="youtube"
+                                        class="icon"
+                                        role="img"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 576 512"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-wrapper">
+                <div class="footer-wrapper-container">
+                    <div class="footer-wrapper-image">
+                        <img
+                            src="data:image/svg+xml,%3csvg class='global-footer__logo' xmlns='http://www.w3.org/2000/svg' viewBox='0 407.8 1000 184.4' enable-background='new 0 407.8 1000 184.4' xml:space='preserve' height='20' width='110'%3e %3ctitle%3eNVIDIA%3c/title%3e %3cg id='nvidia-logo'%3e %3cpath d='M987.1 555.7v-2.8h1.7c0.9 0 2.3 0.1 2.3 1.2 0 1.2-0.7 1.5-1.8 1.5H987.1M987.1 557.6h1.2l2.8 4.8h3l-3.1-5c1.5-0.1 2.9-0.8 2.9-3 0-2.7-1.8-3.5-4.9-3.5h-4.4v11.5h2.6L987.1 557.6M1000 556.7c0-6.8-5.2-10.7-11.1-10.7 -5.8 0-11.1 3.9-11.1 10.7 0 6.8 5.2 10.7 11.1 10.7S1000 563.5 1000 556.7M996.8 556.7c0 4.9-3.6 8.2-7.9 8.2l0 0c-4.4 0-7.9-3.3-7.9-8.2 0-4.9 3.6-8.2 7.9-8.2C993.2 548.6 996.8 551.9 996.8 556.7z'%3e%3c/path%3e %3cpath d='M593.2 442.7v121.1h34.2V442.7H593.2zM324.4 442.5v121.2h34.5v-94.1l26.9 0.1c8.8 0 15 2.2 19.2 6.7 5.4 5.7 7.6 15.1 7.6 32v55.3H446v-66.9c0-47.8-30.5-54.3-60.2-54.3C385.8 442.5 324.4 442.5 324.4 442.5zM648.3 442.7v121.1h55.4c29.5 0 39.2-4.9 49.6-15.9 7.4-7.7 12.1-24.7 12.1-43.3 0-17-4-32.2-11.1-41.7 -12.5-16.9-30.8-20.2-58.1-20.2H648.3zM682.2 469h14.7c21.3 0 35.1 9.5 35.1 34.4 0 24.8-13.7 34.4-35.1 34.4h-14.7V469zM544 442.7l-28.5 95.9 -27.3-95.9h-36.9l39 121.1h49.2l39.3-121.1H544zM781.4 563.7h34.2v-121h-34.2V563.7zM877.2 442.7l-47.7 121h33.7l7.6-21.3h56.5l7.2 21.3h36.6l-48.2-121H877.2zM899.4 464.8l20.7 56.6H878L899.4 464.8z'%3e%3c/path%3e %3cpath d='M103.9 462.8v-16.6c1.6-0.1 3.3-0.2 4.9-0.2 45.6-1.4 75.4 39.1 75.4 39.1s-32.2 44.8-66.8 44.8c-5 0-9.4-0.8-13.4-2.2v-50.5c17.7 2.2 21.3 10 32 27.7l23.7-20c0 0-17.3-22.7-46.5-22.7C110 462.3 106.9 462.5 103.9 462.8M103.9 407.8v24.8c1.6-0.1 3.3-0.2 4.9-0.3 63.3-2.2 104.6 51.9 104.6 51.9s-47.4 57.7-96.7 57.7c-4.5 0-8.7-0.4-12.7-1.1v15.4c3.4 0.4 7 0.7 10.6 0.7 46 0 79.2-23.5 111.4-51.2 5.3 4.3 27.2 14.7 31.7 19.2 -30.6 25.6-101.9 46.3-142.3 46.3 -3.9 0-7.6-0.2-11.3-0.6v21.6h174.7V407.8H103.9zM103.9 527.8v13.1c-42.5-7.6-54.3-51.8-54.3-51.8s20.4-22.6 54.3-26.3v14.4c0 0 0 0-0.1 0 -17.7-2.2-31.7 14.5-31.7 14.5S80 519.6 103.9 527.8M28.4 487.2c0 0 25.2-37.1 75.5-41v-13.5C48.2 437.2 0 484.4 0 484.4s27.3 79 103.9 86.3v-14.4C47.7 549.2 28.4 487.2 28.4 487.2z'%3e%3c/path%3e %3c/g%3e %3c/svg%3e"
+                            class="footerLogo"
+                            alt="NVIDIA Corporation"
+                        />
+                    </div>
+                    <div class="global-link-container">
+                        <div class="global-link-box">
+                            <div class="global-link">
+                                <a href="#" class="global-link-text"
+                                    >Privacy Policy</a
+                                >
+                                <span class="global-link-gap"></span>
+                            </div>
+                            <div>
+                                <a href="#" class="global-link-text"
+                                    >Manage My Privacy</a
+                                >
+                                <span class="global-link-gap"></span>
+                            </div>
+                            <div>
+                                <a href="#" class="global-link-text"
+                                    >Do Not Sell or Share My Data</a
+                                >
+                                <span class="global-link-gap"></span>
+                            </div>
+                            <div>
+                                <a href="#" class="global-link-text"
+                                    >Terms of Service</a
+                                >
+                                <span class="global-link-gap"></span>
+                            </div>
+                            <div>
+                                <a href="#" class="global-link-text"
+                                    >Accessibility</a
+                                >
+                                <span class="global-link-gap"></span>
+                            </div>
+                            <div>
+                                <a href="#" class="global-link-text"
+                                    >Corporate Policies</a
+                                >
+                                <span class="global-link-gap"></span>
+                            </div>
+                            <div>
+                                <a href="#" class="global-link-text"
+                                    >Product Security</a
+                                >
+                                <span class="global-link-gap"></span>
+                            </div>
+                            <div>
+                                <a href="#" class="global-link-text">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright" role="contentinfo">
+                        Copyright © 2025 NVIDIA Corporation
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
