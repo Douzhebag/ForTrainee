@@ -670,13 +670,13 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-    .caption-product{
+    .caption-product {
         top: 35%;
     }
-    .caption-product p{
+    .caption-product p {
         font-size: 20px;
     }
-    .caption-product h2{
+    .caption-product h2 {
         font-size: 36px;
         margin-bottom: 0px;
     }
