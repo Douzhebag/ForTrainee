@@ -52,7 +52,7 @@ header {
 .nav-container {
     display: flex;
     margin: 0 auto;
-    width: 70%;
+    width: 1320px;
     padding: 0 10px;
     height: 44px;
     align-items: center;
@@ -156,7 +156,7 @@ header {
     width: 100%;
 }
 .name-marketplace {
-    width: 70%;
+    width: 1320px;
     margin: 0 auto;
     padding: 0 10px;
     cursor: pointer;
@@ -172,11 +172,17 @@ main {
     overflow: hidden;
     margin-top: 104px;
     background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.slide-box{
+    width: 1320px;
+    margin: 0 auto;
 }
 .image-product-container {
     position: relative;
     height: 300px;
-    width: 70%;
+    width: 100%;
     margin: 0px auto;
 }
 .image-product-container img {
@@ -187,10 +193,13 @@ main {
 .caption-product {
     position: absolute;
     top: 30%;
-    left: 15%;
     padding: 0 10px;
     color: white;
-    width: 70%;
+    width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
 }
 .caption-product p {
     text-align: left;
