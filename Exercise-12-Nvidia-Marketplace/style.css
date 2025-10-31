@@ -558,6 +558,12 @@ main {
         display: flex;
         flex-direction: column;
     }
+    .slide-box{
+        width: 960px;
+    }
+    .name-marketplace   {
+        width: 960px;
+    }
     .allProduct {
         display: grid;
         grid-template-columns: 300px 300px;
@@ -569,6 +575,7 @@ main {
     }
     .nav-container {
         margin: 0 auto;
+        width: 960px;
     }
     .column {
         display: flex;
@@ -586,7 +593,7 @@ main {
     .caption-product {
         position: absolute;
         z-index: 999;
-        width: 100%;
+        width: 960px;
         margin: 0 auto;
     }
     .banner-caption .header-banner {
@@ -653,6 +660,9 @@ main {
     .name-section {
         display: none;
     }
+    .caption-product{
+        width: auto;
+    }
     .footer-section {
         height: 1400px;
     }
@@ -681,6 +691,7 @@ main {
 @media screen and (max-width: 768px) {
     .caption-product {
         top: 35%;
+        width: 100%;
     }
     .caption-product p {
         font-size: 20px;
