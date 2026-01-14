@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Frontend Mentor | Article preview component</title>
+        <script src="popup.js" defer></script>
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <article class="container">
+                <div class="card">
+                    <div class="image-box">
+                        <img
+                            src="/images/drawers.jpg"
+                            alt="drawers"
+                            class="card-image"
+                        />
+                    </div>
+                    <div class="caption-box">
+                        <div class="caption-header">
+                            <p>
+                                Shift the overall look and feel by adding these
+                                wonderful touches to furniture in your home
+                            </p>
+                        </div>
+                        <div class="caption-description">
+                            <p>
+                                Ever been in a room and felt like something was
+                                missing? Perhaps it felt slightly bare and
+                                uninviting. I’ve got some simple tips to help
+                                you make any room feel complete.
+                            </p>
+                        </div>
+                        <div class="profile">
+                            <div class="profile-image-box">
+                                <img
+                                    src="/images/avatar-michelle.jpg"
+                                    alt="Michelle-profile"
+                                    class="profile-image"
+                                />
+                            </div>
+                            <div class="profile-caption">
+                                <p class="name">Michelle Appleton</p>
+                                <p class="date">28 Jun 2020</p>
+                            </div>
+                            <div class="share-box" id="share-button">
+                                <img
+                                    src="/images/icon-share.svg"
+                                    alt="share-icon"
+                                    class="share-image"
+                                    id="share-image"
+                                />
+                            </div>
+                        </div>
+                        <div class="popups" id="popups">
+                            <p>S H A R E</p>
+                            <div class="link-container">
+                                <a href="#" class="link"
+                                    ><img
+                                        src="/images/icon-facebook.svg"
+                                        alt="icon-facebook"
+                                /></a>
+                                <a href="#" class="link"
+                                    ><img
+                                        src="/images/icon-twitter.svg"
+                                        alt="icon-twitter"
+                                /></a>
+                                <a href="#" class="link"
+                                    ><img
+                                        src="/images/icon-pinterest.svg"
+                                        alt="icon-pinterest"
+                                /></a>
+                            </div>
+                            <div class="share-box" id="share-button-ipad">
+                                <img
+                                    src="/images/icon-share.svg"
+                                    alt="share-icon"
+                                    class="share-image"
+                                    id="share-image"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>
