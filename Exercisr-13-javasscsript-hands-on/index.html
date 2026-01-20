@@ -1,0 +1,17 @@
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    <button id="removeItemBtn">Remove Last Item</button>
+
+    <script>
+        const listElement = document.getElementById('myList');
+        const removeItemBtn = document.getElementById('removeItemBtn');
+
+        removeItemBtn.addEventListener('click', () => {
+            const lastItem = listElement.lastChild;
+            listElement.removeChild(lastItem);
+        });
+    </script>
+</body>
