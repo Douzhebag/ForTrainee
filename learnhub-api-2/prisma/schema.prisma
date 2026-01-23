@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// model User {
+//   id           String    @id @default(uuid()) @db.Uuid
+//   name         String    @db.VarChar(255)
+//   username     String    @unique @db.VarChar(255)
+//   password     String    @db.Char(60)
+//   registeredAt DateTime  @default(now())
+//   // Content      Content[]
+// }
+
+model UserLH {
+  id    Int    @id @default(autoincrement())
+  username String?  @db.VarChar(255)
+  name  String?
+  password  String @db.Char(60)
+  registeredAt DateTime  @default(now())
+  contents Content[]
+}
+model Content {
+  id          Int      @id @default(autoincrement())
+  videoTitle  String   @db.VarChar(255)
+  videoUrl    String   @db.VarChar(255)
+  comment     String   @db.VarChar(255)
+  rating      Int      @db.Integer
+  thumbnailUrl String   @db.VarChar(255)
+  creatorName String   @db.VarChar(255)
+  creatorUrl  String   @db.VarChar(255)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  ownerId     Int
+  User        UserLH   @relation(fields: [ownerId], references: [id])
+}
+
+// model Post {
+//   id        Int     @id @default(autoincrement())
+//   title     String
+//   content   String?
+//   published Boolean @default(false)
+//   author    User    @relation(fields: [authorId], references: [id])
+//   authorId  Int
+// }
