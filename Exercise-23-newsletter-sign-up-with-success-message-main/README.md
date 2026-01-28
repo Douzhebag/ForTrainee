@@ -19,13 +19,13 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 
 ### Screenshot
 
-![Screenshot](./images/desktop.png)
-![Screenshot](./images/mobile.png)
+![Screenshot](./assets/images/desktop.png)
+![Screenshot](./assets/images/mobile.png)
 
 ### Links
 
 - Solution URL: [Add solution URL here](https://github.com/Douzhebag/ForTrainee.git)
-- Live Site URL: [Add live site URL here](https://douzhebag.github.io/ForTrainee/Exercise-23-newsletter-sign-up-with-success-message-main/)
+- Live Site URL: [Add live site URL here](https://douzhebag.github.io/ForTrainee/Exercise-23-newsletter-sign-up-with-success-message-main)
 
 ## My process
 
