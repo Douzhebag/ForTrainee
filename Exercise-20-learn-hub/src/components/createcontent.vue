@@ -78,63 +78,57 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-
+import axios from 'axios';
 const router = useRouter();
 const videourl = ref(null);
 const comment = ref(null);
 const selectedRating = ref(0);
 const hoverRating = ref(0);
+const URL = import.meta.env.VITE_DOMAIN_URL;
 
 async function createContent() {
     try {
         const videoUrlValue = videourl.value?.value?.trim();
         const commentValue = comment.value?.value?.trim();
+        const ratingValue = selectedRating.value;
+        const getToken = localStorage.getItem('accessToken');
 
-        if (!videoUrlValue || !commentValue || selectedRating.value === 0) {
+        if (!videoUrlValue || !commentValue || ratingValue === 0) {
             alert('กรุณากรอกข้อมูลให้ครบถ้วนและเลือก rating');
-            return null;
+            return;
         }
-
         if (commentValue.length > 280) {
             alert('ความคิดเห็นต้องไม่เกิน 280 ตัวอักษร');
-            return null;
+            return;
+        }
+        const api = await axios.post(
+            `${URL}/content`,
+            {
+                videoUrl: videoUrlValue,
+                comment: commentValue,
+                rating: ratingValue,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken}`,
+                },
+            },
+        );
+        console.log('สร้างนเื้อหาสำเร็จ', api.data);
+        router.push('/');
+    } catch (error) {
+        if (error.response?.status === 400) {
+            alert('ข้อมูลไม่ถูกต้อง');
+        } else if (error.response?.status === 401) {
+            alert('กรุณาเข้าสู่ระบบใหม่');
+        } else {
+            alert('เกิดข้อผิดพลาด');
         }
 
-        const contentApi = await fetch(
-            'https://api.learnhub.thanayut.in.th/content',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${localStorage.getItem(
-                        'accessToken'
-                    )}`,
-                },
-                body: JSON.stringify({
-                        videoUrl: videoUrlValue,
-                        comment: commentValue,
-                        rating: selectedRating.value,
-                    }),
-                }
-        );
-        if(!contentApi.ok) {
-            const error = await contentApi.json();
-            alert(
-                'สร้างเนื้อหาไม่สำเร็จ: ' + (error.message || 'Unknown error')
-            );
-            return null;
-        }
-        const data = await contentApi.json();
-        router.push('/');
-        return data;
-    } catch (error) {
         console.error('Error creating content:', error);
-        alert('เกิดข้อผิดพลาด: ' + error.message);
-        return null;
     }
 }
 async function handleCreate() {
     await createContent();
 }
 </script>
-

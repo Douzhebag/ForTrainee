@@ -31,8 +31,8 @@
                                     ? 'text-yellow-400'
                                     : 'text-gray-300'
                                 : selectedRating >= n
-                                ? 'text-yellow-400'
-                                : 'text-gray-300'
+                                  ? 'text-yellow-400'
+                                  : 'text-gray-300'
                         "
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
@@ -60,12 +60,14 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import axios from 'axios';
 
 const route = useRoute();
 const router = useRouter();
 const comment = ref('');
 const selectedRating = ref(0);
 const hoverRating = ref(0);
+const URL = import.meta.env.VITE_DOMAIN_URL;
 
 async function fetchContentData() {
     try {
@@ -74,14 +76,18 @@ async function fetchContentData() {
             alert('ไม่พบ ID เนื้อหา');
             return;
         }
-        const response = await fetch(
-            `https://api.learnhub.thanayut.in.th/content/${contentId}`
-        );
-        if (!response.ok) throw new Error('Failed to fetch content');
-        const data = await response.json();
-        const contentData = data?.data || data;
-        comment.value = contentData.comment;
-        selectedRating.value = contentData.rating;
+        // const response = await fetch(
+        //     `https://api.learnhub.thanayut.in.th/content/${contentId}`,
+        // );
+        // if (!response.ok) throw new Error('Failed to fetch content');
+        // const data = await response.json();
+        // const contentData = data?.data || data;
+        // comment.value = contentData.comment;
+        // selectedRating.value = contentData.rating;
+        const response = await axios.get(`${URL}/content/${contentId}`);
+        const data = response.data?.data || response.data;
+        comment.value = data.comment;
+        selectedRating.value = data.rating;
     } catch (error) {
         console.error('Error fetching content:', error);
         alert('ไม่สามารถโหลดข้อมูลได้');
@@ -95,25 +101,35 @@ async function handleUpdate() {
             return;
         }
         const contentId = route.params.id;
-        const response = await fetch(
-            `https://api.learnhub.thanayut.in.th/content/${contentId}`,
+        const getToken = localStorage.getItem('accessToken');
+        // const response = await fetch(
+        //     `https://api.learnhub.thanayut.in.th/content/${contentId}`,
+        //     {
+        //         method: 'PATCH',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             Authorization: `Bearer ${localStorage.getItem(
+        //                 'accessToken'
+        //             )}`,
+        //         },
+        //         body: JSON.stringify({
+        //             comment: comment.value,
+        //             rating: selectedRating.value,
+        //         }),
+        //     }
+        // );
+        const response = await axios.patch(
+            `${URL}/content/${contentId}`,
             {
-                method: 'PATCH',
+                comment: comment.value,
+                rating: selectedRating.value,
+            },
+            {
                 headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${localStorage.getItem(
-                        'accessToken'
-                    )}`,
+                    Authorization: `Bearer ${getToken}`,
                 },
-                body: JSON.stringify({
-                    comment: comment.value,
-                    rating: selectedRating.value,
-                }),
-            }
+            },
         );
-        if (!response.ok) {
-            throw new Error('Failed to update content');
-        }
         alert('อัพเดตเนื้อหาสำเร็จ');
         router.push('/content/' + contentId);
     } catch (error) {

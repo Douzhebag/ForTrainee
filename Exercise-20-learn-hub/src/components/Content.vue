@@ -19,7 +19,15 @@
                         :src="getYoutubeEmbedUrl(content.videoUrl)"
                         :title="content.videoTitle"
                         frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allow="
+                            accelerometer;
+                            autoplay;
+                            clipboard-write;
+                            encrypted-media;
+                            gyroscope;
+                            picture-in-picture;
+                            web-share;
+                        "
                         referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen
                         class="max-md:w-auto"
@@ -52,20 +60,20 @@
                         </p>
                     </div>
                     <!-- <template v-if="canEditContent"> -->
-                        <div class="flex justify-between gap-4 mt-3">
-                            <button
-                                class="bg-orange-500 w-full p-4 text-2xl rounded-lg text-white font-bold hover:bg-orange-600"
-                                @click="updateBtn"
-                            >
-                                Update new Content
-                            </button>
-                            <button
-                                class="bg-red-500 w-full p-4 text-2xl rounded-lg text-white font-bold hover:bg-red-600"
-                                @click="deleteBtn"
-                            >
-                                Delete This Content
-                            </button>
-                        </div>
+                    <div class="flex justify-between gap-4 mt-3">
+                        <button
+                            class="bg-orange-500 w-full p-4 text-2xl rounded-lg text-white font-bold hover:bg-orange-600"
+                            @click="updateBtn"
+                        >
+                            Update new Content
+                        </button>
+                        <button
+                            class="bg-red-500 w-full p-4 text-2xl rounded-lg text-white font-bold hover:bg-red-600"
+                            @click="deleteBtn"
+                        >
+                            Delete This Content
+                        </button>
+                    </div>
                     <!-- </template> -->
                 </div>
             </div>
@@ -79,22 +87,25 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import axios from 'axios';
 
 const route = useRoute();
 const router = useRouter();
 const content = ref(null);
 const userData = ref(null);
-
-
+const URL = import.meta.env.VITE_DOMAIN_URL;
 
 async function getData(id) {
     try {
-        const response = await fetch(
-            `https://api.learnhub.thanayut.in.th/content/${id}`
-        );
-        if (!response.ok) throw new Error('Network error');
-        const data = await response.json();
-        return data?.data || data;
+        // const response = await fetch(
+        //     `https://api.learnhub.thanayut.in.th/content/${id}`
+        // );
+        // if (!response.ok) throw new Error('Network error');
+        // const data = await response.json();
+        // return data?.data || data;
+        const response = await axios.get(`${URL}/content/${id}`);
+        const data = response.data;
+        return data;
     } catch (error) {
         console.error(error);
         return null;
@@ -107,7 +118,7 @@ const getYoutubeEmbedUrl = (url) => {
             return url;
         }
         const videoId = url.match(
-            /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^?&#]+)/
+            /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^?&#]+)/,
         )?.[1];
         if (videoId?.length === 11) {
             return `https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=${window.location.origin}`;
@@ -147,47 +158,69 @@ async function deleteBtn() {
         return;
     }
     try {
-        const response = await fetch(
-            `https://api.learnhub.thanayut.in.th/content/${route.params.id}`,
-            {
-                method: 'DELETE',
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem(
-                        'accessToken'
-                    )}`,
-                },
-            }
-        );
-        if (!response.ok) {
-            throw new Error('Failed to delete content');
-        }
+        const id = route.params.id;
+        const getToken = localStorage.getItem('accessToken');
+        // const response = await fetch(
+        //     `https://api.learnhub.thanayut.in.th/content/${route.params.id}`,
+        //     {
+        //         method: 'DELETE',
+        //         headers: {
+        //             Authorization: `Bearer ${localStorage.getItem(
+        //                 'accessToken'
+        //             )}`,
+        //         },
+        //     }
+        // );
+        // if (!response.ok) {
+        //     throw new Error('Failed to delete content');
+        // }
+        const response = await axios.delete(`${URL}/content/${id}`, {
+            headers: {
+                Authorization: `Bearer ${getToken}`,
+            },
+        });
+
+        const data = response.data;
         alert('ลบเนื้อหาสำเร็จ');
-        router.push('/');
+        router.push('/protected');
+        return data;
     } catch (error) {
-        console.error('Error deleting content:', error);
-        alert('ลบเนื้อหาไม่สำเร็จ: ' + error.message);
+        if (error.response) {
+            console.log('Error status', error.response.status);
+            console.error('Error deleting content:', error);
+            alert('ลบเนื้อหาไม่สำเร็จ ' + error.message);
+        }
     }
 }
 
 async function checkData() {
     const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-        try {
-            const response = await fetch(
-                'https://api.learnhub.thanayut.in.th/auth/user',
-                {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                }
-            );
-            if (response.ok) {
-                const data = await response.json();
-                userData.value = data?.data || {};
-            }
-        } catch (error) {
-            console.error('Error fetching user data:', error);
-        }
+    if (!accessToken) {
+        userData.value = null;
+        return;
+    }
+    try {
+        // const response = await fetch(
+        //     'https://api.learnhub.thanayut.in.th/auth/user',
+        //     {
+        //         headers: {
+        //             Authorization: `Bearer ${accessToken}`,
+        //         },
+        //     },
+        // );
+        // if (response.ok) {
+        //     const data = await response.json();
+        //     userData.value = data?.data || {};
+        // }
+        const response = await axios.get(`${URL}/auth/me`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        });
+        userData.value = response.data?.data || response.data;
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+        userData.value = null;
     }
 }
 onMounted(async () => {

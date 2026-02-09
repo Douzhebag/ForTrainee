@@ -1,7 +1,7 @@
 <template>
     <header class="flex w-full justify-between bg-orange-100">
         <nav class="m-auto flex w-[90%] justify-between py-4">
-            <router-link to="/" class="flex items-center">
+            <router-link to="/protected" class="flex items-center">
                 <img
                     src="https://learnhub.thanayut.in.th/logo.svg"
                     alt="Learn-Hub-logo"
@@ -41,34 +41,35 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
-
+import axios from 'axios';
 const router = useRouter();
 const userData = ref(null);
-
+const URL = import.meta.env.VITE_DOMAIN_URL;
 async function checkAuth() {
-    const accessToken = localStorage.getItem('accessToken');
-    if (!accessToken) {
+    const getToken = localStorage.getItem('accessToken');
+    if (!getToken) {
         userData.value = null;
         return;
     }
     try {
-        const response = await fetch(
-            'https://api.learnhub.thanayut.in.th/auth/me',
-            {
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            }
-        );
+        // const response = await fetch(
+        //     'https://api.learnhub.thanayut.in.th/auth/me',
+        //     {
+        //         method: 'GET',
+        //         headers: {
+        //             Authorization: `Bearer ${accessToken}`,
+        //         },
+        //     }
+        // );
+        const response = await axios.get(`${URL}/auth/me`, {
+            headers: {
+                Authorization: `Bearer ${getToken}`,
+            },
+        });
 
-        if (response.ok) {
-            userData.value = await response.json();
-        } else {
-            handleLogout();
-        }
+        userData.value = response.data;
     } catch (error) {
         console.error('Error checking auth status:', error);
         handleLogout();
@@ -77,12 +78,12 @@ async function checkAuth() {
 
 function handleLogout() {
     localStorage.removeItem('accessToken');
+    localStorage.removeItem('user');
     userData.value = null;
-    router.push('/').then(() => router.go())
+    router.push('/protected').then(() => router.go());
 }
 
-
-watch(() => {
+watchEffect(() => {
     checkAuth();
 });
 </script>

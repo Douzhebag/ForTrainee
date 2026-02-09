@@ -8,7 +8,7 @@
     <section>
         <template v-if="userData">
             <div
-                class="flex mt-6 m-auto w-[80%] "
+                class="flex mt-6 m-auto w-[80%]"
                 id="createBtn"
                 @click="createnewcontentBtn"
             >
@@ -24,39 +24,49 @@
             id="items"
         ></div>
     </section>
-
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import axios from 'axios';
 
+const URL = import.meta.env.VITE_DOMAIN_URL;
 const router = useRouter();
 const userData = ref(null);
 async function getData() {
     try {
-        const response = await fetch(
-            'https://api.learnhub.thanayut.in.th/content',
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            }
-        );
-        const data = await response.json();
-        return data.data;
+        const getToken = localStorage.getItem('accessToken');
+        // const response = await fetch(
+        //     'https://api.learnhub.thanayut.in.th/content',
+        //     {
+        //         method: 'GET',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //     }
+        // );
+        // const data = await response.json();
+        // return data.data;
+        const response = await axios.get(`${URL}/protected`, {
+            headers: {
+                Authorization: `Bearer ${getToken}`,
+            },
+        });
+        const data = response.data;
+        return data;
     } catch (error) {
         console.log('Error fetching data:', error);
     }
 }
 function createData(contents) {
+    console.log('content', contents);
     const {
         thumbnailUrl,
         videoTitle,
         creatorName,
         comment,
-        postedBy: { name },
+        ownerId: { name },
         rating,
         id,
     } = contents;
@@ -75,7 +85,7 @@ function createData(contents) {
                 <div class="flex justify-between max-lg:flex-col max-md:text-2xl max-md:flex-row">
                     <p>${name}</p>
                     <p class="size-6 w-max text-orange-600 text-base max-md:text-2xl" >${createStarRating(
-                        rating
+                        rating,
                     )}</p>
                 </div>
             </div>
@@ -97,20 +107,27 @@ function createStarRating(rating) {
 
 async function loopData() {
     const itemsContainer = document.getElementById('items');
-    // if (!itemsContainer) return;
+    if (!itemsContainer) return;
 
-    // try {
-    const data = await getData();
-    //     if (!data && data.length === 0) {
-    //             '<p class="col-span-5 text-center">No content</p>';
-    //         return;
-    //     }
-    const contentData = data.map((content) => createData(content)).join('');
-    itemsContainer.innerHTML = contentData;
-    // } catch (err) {
-    //     console.error('loopData error:', err);
-    // }
+    try {
+        const data = await getData();
+
+        if (!Array.isArray(data) || data.length === 0) {
+            itemsContainer.innerHTML =
+                '<p class="col-span-5 text-center">No content</p>';
+            return;
+        }
+
+        itemsContainer.innerHTML = data
+            .map((content) => createData(content))
+            .join('');
+    } catch (err) {
+        console.error('loopData error:', err);
+        itemsContainer.innerHTML =
+            '<p class="col-span-5 text-center text-red-500">Error loading data</p>';
+    }
 }
+
 function checkAuth() {
     const accessToken = localStorage.getItem('accessToken');
     userData.value = !!accessToken;
@@ -122,7 +139,7 @@ async function createnewcontentBtn() {
         alert('กรุณา Login ก่อนสร้างเนื้อหา');
         router.push('/login');
         return userData;
-}
+    }
 
     if (accessToken.ok) {
         console.log('สามารถสร้างเนื้อหาได้');

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+
+        <title>Frontend Mentor | Time tracking dashboard</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <section class="container">
+                <article class="card-container">
+                    <div class="user-card">
+                        <div class="user-profile">
+                            <div>
+                                <img
+                                    src="./images/image-jeremy.png"
+                                    alt="jeremy profile"
+                                    class="image"
+                                />
+                            </div>
+                            <div class="name-box">
+                                <p class="repeat">Report for</p>
+                                <p class="name">Jeremy Robson</p>
+                            </div>
+                        </div>
+                        <div class="user-date-card">
+                            <p class="menu" id="Daily">Daily</p>
+                            <p class="menu" id="Weekly">Weekly</p>
+                            <p class="menu" id="Monthly">Monthly</p>
+                        </div>
+                    </div>
+                    <div class="grid-container" id="grid-container">
+                        <!-- <div class="card orange-card">
+                            <div class="background-card">
+                                <img
+                                    src="./images/icon-work.svg"
+                                    alt="Work icon"
+                                />
+                            </div>
+                            <div class="data-card">
+                                <div class="header-card">
+                                    <p id="name">name</p>
+                                    <img
+                                        src="./images/icon-ellipsis.svg"
+                                        alt="icon-ellipsis"
+                                    />
+                                </div>
+                                <div class="caption-card">
+                                    <p class="hour" id="hour">32hrs</p>
+                                    <p class="lastweek">
+                                        lastweek<span
+                                            class="lastweek"
+                                            id="last-week"
+                                            >(hour-lastweek)</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card blue-card">
+                            <div class="background-card">
+                                <img
+                                    src="./images/icon-play.svg"
+                                    alt="Work icon"
+                                />
+                            </div>
+                            <div class="data-card">
+                                <div class="header-card">
+                                    <p id="name">name</p>
+                                    <img
+                                        src="./images/icon-ellipsis.svg"
+                                        alt="icon-ellipsis"
+                                    />
+                                </div>
+                                <div class="caption-card">
+                                    <p class="hour" id="hour">32hrs</p>
+                                    <p class="lastweek">
+                                        lastweek<span
+                                            class="lastweek"
+                                            id="last-week"
+                                            >(hour-lastweek)</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card pink-card">
+                            <div class="background-card">
+                                <img
+                                    src="./images/icon-study.svg"
+                                    alt="Work icon"
+                                />
+                            </div>
+                            <div class="data-card">
+                                <div class="header-card">
+                                    <p id="name">name</p>
+                                    <img
+                                        src="./images/icon-ellipsis.svg"
+                                        alt="icon-ellipsis"
+                                    />
+                                </div>
+                                <div class="caption-card">
+                                    <p class="hour" id="hour">32hrs</p>
+                                    <p class="lastweek">
+                                        lastweek<span
+                                            class="lastweek"
+                                            id="last-week"
+                                            >(hour-lastweek)</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card green-card">
+                            <div class="background-card">
+                                <img
+                                    src="./images/icon-exercise.svg"
+                                    alt="Work icon"
+                                />
+                            </div>
+                            <div class="data-card">
+                                <div class="header-card">
+                                    <p id="name">name</p>
+                                    <img
+                                        src="./images/icon-ellipsis.svg"
+                                        alt="icon-ellipsis"
+                                    />
+                                </div>
+                                <div class="caption-card">
+                                    <p class="hour" id="hour">32hrs</p>
+                                    <p class="lastweek">
+                                        lastweek<span
+                                            class="lastweek"
+                                            id="last-week"
+                                            >(hour-lastweek)</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card purple-card">
+                            <div class="background-card">
+                                <img
+                                    src="./images/icon-social.svg"
+                                    alt="Work icon"
+                                />
+                            </div>
+                            <div class="data-card">
+                                <div class="header-card">
+                                    <p id="name">name</p>
+                                    <img
+                                        src="./images/icon-ellipsis.svg"
+                                        alt="icon-ellipsis"
+                                    />
+                                </div>
+                                <div class="caption-card">
+                                    <p class="hour" id="hour">32hrs</p>
+                                    <p class="lastweek">
+                                        lastweek<span
+                                            class="lastweek"
+                                            id="last-week"
+                                            >(hour-lastweek)</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card yellow-card">
+                            <div class="background-card">
+                                <img
+                                    src="./images/icon-self-care.svg"
+                                    alt="Work icon"
+                                />
+                            </div>
+                            <div class="data-card">
+                                <div class="header-card">
+                                    <p id="name">name</p>
+                                    <img
+                                        src="./images/icon-ellipsis.svg"
+                                        alt="icon-ellipsis"
+                                    />
+                                </div>
+                                <div class="caption-card">
+                                    <p class="hour" id="hour">32hrs</p>
+                                    <p class="lastweek">
+                                        lastweek<span
+                                            class="lastweek"
+                                            id="last-week"
+                                            >(hour-lastweek)</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </article>
+            </section>
+        </main>
+        <script src="fetchApi.js"></script>
+    </body>
+</html>
+<!-- <div class="work-card">
+                      <div>
+                        <p>name</p>
+                        <img src="./images/icon-ellipsis.svg" alt="">
+                      </div>
+                        <p>hour</p>
+                        <p>lastweek(hour-lastweek)</p>
+                    </div> -->

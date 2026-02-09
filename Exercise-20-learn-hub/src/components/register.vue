@@ -52,6 +52,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import axios from 'axios';
 
 const router = useRouter();
 const usernameInput = ref(null);
@@ -59,6 +60,7 @@ const nameInput = ref(null);
 const passwordInput = ref(null);
 const confirmpasswordInput = ref(null);
 
+const URL = import.meta.env.VITE_DOMAIN_URL;
 async function register() {
     try {
         const username = usernameInput.value.value;
@@ -73,36 +75,39 @@ async function register() {
             alert('รหัสผ่านไม่ตรงกัน');
             return null;
         }
-        const api = await fetch(
-            'https://api.learnhub.thanayut.in.th/user', 
-            {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: username,
-                name: name,
-                password: password,
-            }),
+        // const api = await fetch(`${URL}/user`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         username: username,
+        //         name: name,
+        //         password: password,
+        //     }),
+        // });
+        const api = await axios.post(`${URL}/register`, {
+            username,
+            name,
+            password,
         });
-        if (api.status === 409) {
-            alert('Username นี้มีอยู่แล้ว');
-            return null;
-        }
-        if (!api.ok) {
-            alert('ลงทะเบียนไม่สำเร็จ');
-            return null;
-        }
-        const userdata = await api.json();
-        return userdata;
+        return api.data;
     } catch (error) {
-        console.error('Error registering user:', error);
-        alert('ลงทะเบียนไม่สำเร็จ');
+        if (error.response) {
+            if (error.response.status === 409) {
+                alert('Username นี้มีอยู่แล้ว');
+            } else if (error.response.status === 400) {
+                alert('ข้อมูลไม่ถูกต้อง');
+            } else {
+                alert('ลงทะเบียนไม่สำเร็จ');
+            }
+        } else {
+            alert('ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์');
+        }
+        console.error(error);
         return null;
     }
 }
-
 async function handleRegister() {
     const result = await register();
     if (result) {
