@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+        <title>Frontend Mentor | Tip calculator app</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    </head>
+    <body>
+        <main>
+            <div class="header">
+                <h1 class="header-one">S P L I <br>T T E R</h1>
+            </div>
+            <article class="container">
+                <div class="left-card">
+                    <div class="top">
+                        <p class="price-header">Bill</p>
+                        <input
+                            type="number"
+                            placeholder="0.00"
+                            class="price-box"
+                            id="bill"
+                        />
+                    </div>
+                    <div class="center">
+                        <p class="tip-header">Select Tip %</p>
+                        <div class="box">
+                            <p class="items" id="items">5%</p>
+                            <p class="items" id="items">10%</p>
+                            <p class="items" id="items">15%</p>
+                            <p class="items" id="items">25%</p>
+                            <p class="items" id="items">50%</p>
+                            <input
+                                type="number"
+                                class="custom"
+                                id="custom"
+                                placeholder="Custom"
+                            />
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <p class="people-header">Number of People</p>
+                        <input
+                            type="number"
+                            placeholder="0"
+                            class="number-box"
+                            id="number-box"
+                        />
+                    </div>
+                </div>
+                <div class="right-card">
+                    <div class="result-box">
+                        <div class="tip-box">
+                            <div>
+                                <p class="tip-amount">Tip Amount</p>
+                                <span class="person">/ person</span>
+                            </div>
+                            <p class="price" id="tip">0</p>
+                        </div>
+                        <div class="person-price">
+                            <div>
+                                <p class="tip-amount">Total</p>
+                                <span class="person"> / person</span>
+                            </div>
+                            <p class="price" id="price-person">0</p>
+                        </div>
+                    </div>
+                    <button class="btn" id="btn">RESET</button>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>
